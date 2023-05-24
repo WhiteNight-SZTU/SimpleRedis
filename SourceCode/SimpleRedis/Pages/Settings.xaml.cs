@@ -135,7 +135,8 @@ namespace SimpleRedis.Pages
             {
                 MainWindow.appWindow.SetPresenter(AppWindowPresenterKind.FullScreen);
                 MainWindow.current.TitleBarState(true);
-            }else if(comboBox.SelectedIndex == 2)
+            }
+            else if(comboBox.SelectedIndex == 2)
             {
                MainWindow.appWindow.SetPresenter(AppWindowPresenterKind.Default);
                 MainWindow.current.TitleBarState(true);

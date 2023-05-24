@@ -26,7 +26,7 @@
                 <TextBlock Margin="0,10,0,10" Text="设置窗口" FontWeight="Bold"/>
                 <ComboBox SelectionChanged="changeAppWindow" PlaceholderText="选择窗口格式" Width="200">
                     <x:String>全屏</x:String>
-                    <x:String>无边框</x:String>
+                    <x:String>全屏有边框</x:String>
                     <x:String>默认</x:String>
                 </ComboBox>
             </StackPanel>
