@@ -1,4 +1,4 @@
-# SimpleRedis
+# SimpleString
 However, i was trying to build a visual tool that no only allow user to bulk adding String, which also
 supported user to add List,HashList and so on. 
 
