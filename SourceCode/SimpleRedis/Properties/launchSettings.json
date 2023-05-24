@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SimpleRedis (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "SimpleRedis (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

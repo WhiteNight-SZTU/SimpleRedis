@@ -1,0 +1,127 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>SimpleRedis</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x86;x64;ARM64</Platforms>
+    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+    <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
+    <UseWinUI>true</UseWinUI>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <ApplicationIcon>Assets\Nep.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="Assets\LargeTile.scale-100.png" />
+    <Content Remove="Assets\LargeTile.scale-125.png" />
+    <Content Remove="Assets\LargeTile.scale-150.png" />
+    <Content Remove="Assets\LargeTile.scale-200.png" />
+    <Content Remove="Assets\LargeTile.scale-400.png" />
+    <Content Remove="Assets\Nep.png" />
+    <Content Remove="Assets\SmallTile.scale-100.png" />
+    <Content Remove="Assets\SmallTile.scale-125.png" />
+    <Content Remove="Assets\SmallTile.scale-150.png" />
+    <Content Remove="Assets\SmallTile.scale-200.png" />
+    <Content Remove="Assets\SmallTile.scale-400.png" />
+    <Content Remove="Assets\Square150x150Logo.scale-100.png" />
+    <Content Remove="Assets\Square150x150Logo.scale-125.png" />
+    <Content Remove="Assets\Square150x150Logo.scale-150.png" />
+    <Content Remove="Assets\Square150x150Logo.scale-200.png" />
+    <Content Remove="Assets\Square150x150Logo.scale-400.png" />
+    <Content Remove="Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+    <Content Remove="Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+    <Content Remove="Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+    <Content Remove="Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+    <Content Remove="Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+    <Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Remove="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Remove="Assets\Square44x44Logo.scale-100.png" />
+    <Content Remove="Assets\Square44x44Logo.scale-125.png" />
+    <Content Remove="Assets\Square44x44Logo.scale-150.png" />
+    <Content Remove="Assets\Square44x44Logo.scale-200.png" />
+    <Content Remove="Assets\Square44x44Logo.scale-400.png" />
+    <Content Remove="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Remove="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Remove="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Remove="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Remove="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Remove="Assets\StoreLogo.scale-100.png" />
+    <Content Remove="Assets\StoreLogo.scale-125.png" />
+    <Content Remove="Assets\StoreLogo.scale-150.png" />
+    <Content Remove="Assets\StoreLogo.scale-200.png" />
+    <Content Remove="Assets\StoreLogo.scale-400.png" />
+    <Content Remove="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Remove="Assets\Wide310x150Logo.scale-125.png" />
+    <Content Remove="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Remove="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Remove="Assets\Wide310x150Logo.scale-400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="AppData\InitSettings.json" />
+    <None Remove="AppData\RedisKey.json" />
+    <None Remove="Assets\Background\Default.jpg" />
+    <None Remove="Control\ResourceDictionary1.xaml" />
+    <None Remove="Pages\Github.xaml" />
+    <None Remove="Pages\Home.xaml" />
+    <None Remove="Pages\Settings.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppData\InitSettings.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppData\RedisKey.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFrameworkCore.SqlServer.NodaTime" Version="6.0.9" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.221109.1" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.111" />
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <!-- 
+    Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
+    Tools extension to be activated for this project even if the Windows App SDK Nuget
+    package has not yet been restored.
+  -->
+  <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Home.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Github.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Control\ResourceDictionary1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <!-- 
+    Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
+    Explorer "Package and Publish" context menu entry to be enabled for this project even if 
+    the Windows App SDK Nuget package has not yet been restored.
+  -->
+  <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+	  
+	  <WindowsPackageType>None</WindowsPackageType>
+	  <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+  </PropertyGroup>
+</Project>
