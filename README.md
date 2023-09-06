@@ -1,6 +1,6 @@
 # SimpleString
 A tool for bulk adding String to Redis , based on WinUI3.  
-向Redis中批量添加String的WinUI3程序。
+向Redis数据库中批量添加String的WinUI3程序。
 
 
 However, i was trying to build a visual tool that no only allow user to bulk adding String, which also supported user to add List, HashList and more.  
